@@ -25,7 +25,7 @@
 					<th>Opcionais</th>
 					<th>Tipo</th>					
 					<th>Valor</th>					
-					<th>Imagem projeto</th>					
+					<th>Imagem</th>					
 					<th>Editar</th>
 					<th>Excluir</th>
 				</tr>
@@ -48,10 +48,10 @@
 					
 					
 					<!-- esse cara chama o método para reenderizar a imagem  -->
-					<!-- <td><img th:src="@{/veiculo/img/{foto}(foto=${v.fotoDestaque})}" height="50" width="50"></td>
+					<td><img th:src="@{/veiculo/img/{foto}(foto=${v.fotoDestaque})}" height="50" width="50"></td>
 					
 					<!-- esse cara pega a imagem no diretório do projeto -->
-					<td><img th:src="@{'/images_upload/veiculos/' + ${v.fotoDestaque}}" height="50" width="50"></td>
+					<!--<td><img th:src="@{'/images_upload/veiculos/' + ${v.fotoDestaque}}" height="50" width="50"></td>-->
 					
 					<td><a th:href="@{editar/(id=${v.id})}" class="btn btn-warning">Editar</a></td>
 					<td><a th:href="@{excluir/(id=${v.id})}" class="btn btn-danger">Excluir</a></td>

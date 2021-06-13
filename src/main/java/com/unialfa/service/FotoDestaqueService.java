@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class FotoDestaqueService {
 
 	//Constante com o caminho de uma pasta local
-	private final String uploadDir = "C:\\Users\\Ranghetti\\Pictures\\image_upload\\";
+	private final String uploadDir = "C:\\xampp\\htdocs\\concessionaria\\carros\\";
 
 	public String getUploadDir() {
 		return uploadDir;

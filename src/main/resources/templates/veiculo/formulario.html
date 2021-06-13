@@ -15,6 +15,15 @@
 			<!-- É necessário indicar o enctype -->
 			<form action="salvar" method="post" enctype="multipart/form-data">
 				<div class="form-group">
+				
+						<!-- Exemplo de dropdown-list/select -->
+					<br>
+					<label>Marca</label>
+					<select th:field="${veiculo.marca.id}" class="form-control">
+						<option value="" selected="selected">Selecione...</option>
+						<option th:each="m: ${marcas}" th:value="${m.id}" th:text="${m.descricao}"></option>
+					</select>
+					
 					<br>
 					<label>Modelo</label>
 					<input type="text" class="form-control" id="modelo" name="modelo" th:value="${veiculo.modelo}"/>
@@ -23,13 +32,14 @@
 					<label>Valor</label>
 					<input type="text" class="form-control" id="valor" name="valor" th:value="${veiculo.valor}"/>
 					
-					<!-- Exemplo de dropdown-list/select -->
+					
 					<br>
-					<label>Marca</label>
-					<select th:field="${veiculo.marca.id}" class="form-control">
-						<option value="" selected="selected">Selecione...</option>
-						<option th:each="m: ${marcas}" th:value="${m.id}" th:text="${m.descricao}"></option>
-					</select>
+					<label>Ano Fabricação</label>
+					<input type="text" class="form-control"
+						id="anoFabricacao" name="anoFabricacao"
+						min="4" max="4"
+						th:value="${#strings.substring(veiculo.anoFabricacao,0,4)}"/>
+					
 					
 					<!-- O forma da data vem yyy-mm-dd por isso o uso do sbstring -->
 					<br>
@@ -39,12 +49,7 @@
 						min="4" max="4"
 						th:value="${#strings.substring(veiculo.anoModelo,0,4)}"/>
 						
-					<br>
-					<label>Ano Fabricação</label>
-					<input type="text" class="form-control"
-						id="anoFabricacao" name="anoFabricacao"
-						min="4" max="4"
-						th:value="${#strings.substring(veiculo.anoFabricacao,0,4)}"/>
+					
 						
 					<br>
 					<label>Cor</label>
