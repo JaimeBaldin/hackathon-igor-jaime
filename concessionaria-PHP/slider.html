@@ -1,0 +1,29 @@
+<script src="jquery-3.1.1.min.js"></script> </-Adicionando a bibliteco JQuery->
+
+<script>
+	var slides=["#s1","#s2","#s3","#s4","#s5"]; /*Criando as variaveis dos slides*/
+	slideatual=0; /*Definir qual slide que vai começar, no caso partir do ponto 0*/
+	slidemax=4; /*Defirnir o maximo de Slides, no caso a contagem começa apartir de 0*/
+	tempo=10000; /*Definir o tempo de passagem de cada slide, lembrando que o calculo é milesegundos "Neste caso em 10 segundos"*/
+
+	
+	$(document).ready(function() {
+		$(slides[slideatual]).fadeTo(1000,1); /*Após carregar vai mostrar o primeiro*/
+
+		setInterval(troca,tempo); /*Nesse caso a cada tempo vou chamar troca*/
+		function troca() {
+			$(slides[slideatual]).fadeTo(1000,0); /*Vou fazer a troca em 1s e ocultar*/
+			slideatual++; /*Ele vai somar +1 e vai chamar o proximo Slide*/
+			if (slideatual > slidemax) {
+				slideatual=0;
+			}
+			$(slides[slideatual]).fadeTo(1000,1);
+		}
+	});
+</script>
+
+<img id="s1" src="slides/slide1.jpg" width="100%" height="400px">
+<img id="s2" src="slides/slide2.jpg" width="100%" height="400px">
+<img id="s3" src="slides/slide3.jpg" width="100%" height="400px">
+<img id="s4" src="slides/slide4.jpg" width="100%" height="400px">
+<img id="s5" src="slides/slide5.jpg" width="100%" height="400px">

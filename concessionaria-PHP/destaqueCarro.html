@@ -1,0 +1,68 @@
+<?php
+	session_start(); //iniciando uma sessão
+
+	include "conexao.php";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+		<section id="carros">
+		<?php
+			$dir='carros/';
+
+			$maximo_registros_exibidos=2;
+			if (isset($_GET["pg"])) {
+				$pagina_atual=$_GET["pg"];
+			} else {
+				$pagina_atual=1;
+			}
+
+			$inicio=$pagina_atual-1;
+			$inicio*=$maximo_registros_exibidos;
+
+			//$sql="SELECT * FROM veiculo";
+			//$result=mysqli_query($con, $sql);
+
+			$sql="SELECT * FROM veiculo ORDER BY RAND( ) limit 2"; //Limitando maximo de carros por pagina, vai aparecer aleatorio com o RAND();
+			$result=mysqli_query($con, $sql);
+			$total_registros=mysqli_num_rows(mysqli_query($con, "SELECT * FROM veiculo"));
+			$total_paginas=$total_registros/$maximo_registros_exibidos;
+
+			$anterior=$pagina_atual-1;
+			$proxima=$pagina_atual+1;
+
+			
+
+			while ($dados=mysqli_fetch_array($result)) {
+				echo "<article>".
+						"<div id='d1'>".
+							"<img src='".$dir.$dados['fotoDestaque']."' width='200px' height='200'>". 
+						"</div>".
+						"<div id='d2'>".
+							"<div id='titulo'>".
+								"<div id='t1'>".
+									"<p>".$dados['modelo']."</p>".
+								"</div>".
+								"<div id='t2'>".
+									"<p>R$".number_format($dados['valor'],2,',','.')."</p>". //number_format(valor, casas_decimais, sep_dec, sep_mil);
+								"</div>".
+							"</div>".
+							"<div id='dados'>".
+								"<p>".$dados['anoFabricacao']."/".$dados['anoModelo']."</p>".
+								"<p>".$dados['tipo']."</p>".
+								"<p>".$dados['opcionais']."</p>".
+							"</div>".
+						"</div>".
+					"</article>"
+				;
+			}
+		?>
+	</section>
+</body>
+</html>

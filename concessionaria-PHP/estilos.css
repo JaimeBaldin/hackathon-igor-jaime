@@ -1,0 +1,201 @@
+body {
+	margin: 0 auto;		//centrtaliza a janela na minha pagina;
+	width: 960px;		//è o tamanho que ele ira centralizar na minha janela;
+	background-color: #FFF;		//neste caso estou forçando a utilização da cor branca;
+	overflow: scroll;		//estou obrigando a barra de rolagem;
+	overflow-x: hidden;		//Nesse caso eu estou colocando OVERFLOW somente no Y, no X esta escondido;
+	background-image: url(imgs/fundo_topo.jpg);		//estou colocando uma imagem de fundo preto;
+	background-repeat: repeat-x;		//estou pedindo que a imagem se repeat no eixo-X;
+}
+
+header {
+	height: 122px; //Corrigidno a altura do Slider para não sobrepor o topo; 
+}
+
+#logo_topo {
+	width: 301px; //largura do meu lgo no topo;
+	height: 111px; //altura do meu logo no topo;
+	background-color: #000; //Forçando a cor de fundo preta;
+	background-image: url(imgs/logo.png);
+	float: left; //Faz com que a imagem flutue;
+}
+
+#menu {
+	width: 659px; //Largura do menu *Lembrando que aqui e o restante devido a imagem de logo que foi colocado*;
+	height: 111px; //Altura de preferencia a mesma da imagem da logo para não dar diferença;
+	background-color: #000; //Usando a cor preta de fundo;
+	display: table-cell; //Vou organizar os botoes em linha formato de celula;
+	vertical-align: middle; //Vou centralizar ele no vertical;
+	padding: 0px 0px 0px 200px;
+}
+
+.btmenu {
+	text-decoration: none; //Vai retirar o sublinhado do link;
+	display: table-cell;
+	width: 100px; //Largura de cada botão;
+	height: 30px; //Altura de cada botão;
+	margin: 0px;
+	padding: 1px 5px 1px 5px; //Superior Direita Inferior Esquerda;
+	background-color: #222; //Forçando para ser cinza escuro;
+	text-align: center; //Alinhamento horizontal;
+	vertical-align: middle; //Alichamento vertical;
+	border-radius: 10px; //Arrendodamento das bordas dos botões;
+	color: #bbb; //Cor do texto do botão;
+	font-family: Arial; //Formato da letra;
+	font-size: 10px; //Tamanho da letra;
+	cursor: pointer; //Quando o mouse estiver em cima do botão ele vai mudar;
+	border: 0px; //Tirar a borda do botão;
+}
+
+.btmenu:hover {
+	background-color: #c22; //Mudar a cor do botão quando o cursor está por cima;
+	color: #FFF; //Mudar a cor da letra juntamente com o botão quando o cursor está por cima;
+}
+
+#slider {
+	background-color: #e7e7e7;
+	width: 100%;
+	height: 400px;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	left: 0px;
+}
+
+#s1, #s2, #s3, #s4, #s5 {
+	opacity: 0; //Deixar as imagem do Slider transparente;
+	filter: alpha(opacity=0); //Para versões mais antigas que as vezes nao reconhece somente o opacity;
+	position: absolute;
+}
+
+#buscador {
+	width: 960px; //Area definida no começo da programação;
+	margin: 410px 0px 0px 0px; //Baseado na altura do slider, indicado ser um pouco maior para nao ser colado;
+}
+
+#fbuscador {
+	display: flex; //Vai fazer ajuste das div dentro da inha area determinada;
+	border: 1px solid #ccc; //config. da borda "Espessura/Estilo/Cor";
+	border-radius: 15px; //Arrendedor as bordas;
+	padding: 20px; //Distanciar o texto da borda;
+}
+
+.divbusca {
+	margin: auto; //Largura das div do formulario vai se corrigir automatico
+	display: inline; //Faz com que a Div não fique em block e mude uma ao lado da outra;
+}
+
+label {
+	display: block; //Desta forma ele executa a quebra de linha;
+}
+
+.titulo {
+	font-size: 22px; //Tamanho da letra;
+	color: #BBB; //Cor da letra;
+	padding: 10px 0px 0px 0px; //Aqui ele vai afastar do Slider;
+	margin: 0px 0px 10px 0px; //Aqui ele vai afastar do Formulario;
+}
+
+#destaque {
+	display: flex; //Vai distribuir as imagens por igual;
+	padding: 15px 0px; //Definir valor em 2 comando "Superior/Inferior" "Esquerda/Direita";
+
+}
+
+.destaque {
+	margin: auto; //Essa margin, com o display do container, vai distribuir igualmente;
+	padding: 50px; 
+	background: #000; //Fundo Preto;
+	border-radius: 100%; //Arrendondar as bordas;
+}
+
+.destaque:hover {
+	background: #c22; //Mudar a cor do botão quando o cursor estiver em cima;
+}
+
+footer {
+	text-align: center; //Alinhando o Texto;
+	background: #2B2E38; //Cor de fundo;
+	padding: 1px 20px; //"Superior/Inferior" e "Esquerda/Direita";
+	margin: 15px 0px 0px 0px;
+}
+
+#carros {
+	padding-top: 20px;
+	flex-direction: column;
+	align-items: center;
+}
+
+#carros article {
+	width: 960px;
+	display: flex;
+	background: #eee;
+	margin-bottom: 15px;
+}
+
+#d2 {
+	width: 100%;
+
+}
+
+#titulo,#t1 {
+	display: flex;
+}
+
+#titulo {
+	justify-content: space-between;
+	background: #c22;
+	padding: 5px;
+}
+
+#dados {
+	padding: 5px;
+}
+
+#t1 p,#t2 p {
+	color: #fff;
+	font-weight: bold;
+}
+
+
+
+
+@media screen and (max-device-width: 450px) {
+	header, section, footer{
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+
+	header {
+		flex-direction: column;
+	}
+
+	header img {
+		width: 100%;
+		height: 100%;
+	}
+
+	header nav {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.btmenu {
+		width: 100%;
+		height: 80px;
+		font-size: 30px;
+	}
+
+	.slider, footer, #destaques {
+		display: none;
+	}
+
+	.buscador form, .buscador p {
+		width: 100%;
+	}
+
+	.buscador p, select, label {
+		font-size: 30px;
+	}
+}
